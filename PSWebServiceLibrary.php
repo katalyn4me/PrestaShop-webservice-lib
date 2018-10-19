@@ -201,6 +201,7 @@ class PrestaShopWebservice
 		{
 			libxml_clear_errors();
 			libxml_use_internal_errors(true);
+            $response = str_replace(array("\r\n", "\r", "\n","[]"), "", $response);
 			$xml = simplexml_load_string($response,'SimpleXMLElement', LIBXML_NOCDATA);
 			if (libxml_get_errors())
 			{
